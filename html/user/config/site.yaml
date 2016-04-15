@@ -1,0 +1,16 @@
+title: ryanwalsh.io
+author:
+  name: 'Ryan Walsh'
+  email: ryan@thehatrack.net
+taxonomies:
+  - category
+  - tag
+metadata:
+  description: 'rambling about code'
+summary:
+  enabled: true
+  format: short
+  size: 300
+  delimiter: '==='
+blog:
+  route: /blog

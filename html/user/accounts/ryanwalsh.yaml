@@ -1,0 +1,11 @@
+email: ryan@thehatrack.net
+fullname: 'Ryan Walsh'
+title: Owner
+state: enabled
+access:
+  admin:
+    login: true
+    super: true
+  site:
+    login: true
+hashed_password: $2y$10$grkag88etKNf.tIFA29WP.h90NBO.4DJ97VYO/oRYlqOxpP.eaU06
