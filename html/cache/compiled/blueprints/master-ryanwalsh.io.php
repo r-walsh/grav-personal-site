@@ -1,8 +1,8 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledBlueprints',
-    'timestamp' => 1460752229,
-    'checksum' => 'f5df60a2bd8879240ed4a9759d069a93',
+    'timestamp' => 1461796147,
+    'checksum' => '667b9208b9c05e3692fb3296fd56f258',
     'files' => [
         'system/blueprints/config' => [
             'media' => [
@@ -25,7 +25,7 @@ return [
         'user/plugins' => [
             'plugins/admin' => [
                 'file' => 'user/plugins/admin/blueprints.yaml',
-                'modified' => 1460489576
+                'modified' => 1461796147
             ],
             'plugins/error' => [
                 'file' => 'user/plugins/error/blueprints.yaml',
@@ -37,15 +37,15 @@ return [
             ],
             'plugins/form' => [
                 'file' => 'user/plugins/form/blueprints.yaml',
-                'modified' => 1460489572
+                'modified' => 1461796143
             ],
             'plugins/login' => [
                 'file' => 'user/plugins/login/blueprints.yaml',
-                'modified' => 1460489574
+                'modified' => 1461796146
             ],
             'plugins/email' => [
                 'file' => 'user/plugins/email/blueprints.yaml',
-                'modified' => 1460489573
+                'modified' => 1461796144
             ],
             'plugins/archives' => [
                 'file' => 'user/plugins/archives/blueprints.yaml',
@@ -933,7 +933,8 @@ return [
                 'options' => [
                     'none' => 'None',
                     'ssl' => 'SSL',
-                    'ttl' => 'TTL'
+                    'tls' => 'TLS',
+                    'starttls' => 'STARTTLS'
                 ],
                 'name' => 'plugins.email.mailer.smtp.encryption'
             ],
@@ -959,6 +960,20 @@ return [
                 'label' => 'Path to sendmail',
                 'placeholder' => '/usr/sbin/sendmail',
                 'name' => 'plugins.email.mailer.sendmail.bin'
+            ],
+            'plugins.email.debug' => [
+                'type' => 'toggle',
+                'label' => 'Debug',
+                'highlight' => 1,
+                'default' => 0,
+                'options' => [
+                    1 => 'PLUGIN_ADMIN.ENABLED',
+                    0 => 'PLUGIN_ADMIN.DISABLED'
+                ],
+                'validate' => [
+                    'type' => 'bool'
+                ],
+                'name' => 'plugins.email.debug'
             ],
             'plugins.archives' => [
                 'type' => '_parent',
@@ -2455,7 +2470,8 @@ return [
                     'from' => 'plugins.email.from',
                     'from_name' => 'plugins.email.from_name',
                     'to' => 'plugins.email.to',
-                    'to_name' => 'plugins.email.to_name'
+                    'to_name' => 'plugins.email.to_name',
+                    'debug' => 'plugins.email.debug'
                 ],
                 'archives' => [
                     'enabled' => 'plugins.archives.enabled',

@@ -2,21 +2,13 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/home/grav/www/html/user/config/system.yaml',
-    'modified' => 1460506732,
+    'modified' => 1462291522,
     'data' => [
         'absolute_urls' => false,
         'timezone' => 'America/Chicago',
         'param_sep' => ':',
         'wrapped_site' => false,
         'reverse_proxy_setup' => false,
-        'languages' => [
-            'include_default_lang' => true,
-            'translations' => true,
-            'translations_fallback' => true,
-            'session_store_active' => false,
-            'http_accept_language' => false,
-            'override_locale' => false
-        ],
         'home' => [
             'alias' => '/blog',
             'hide_in_urls' => true

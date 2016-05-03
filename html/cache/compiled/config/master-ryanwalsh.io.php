@@ -1,8 +1,8 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledConfig',
-    'timestamp' => 1460752254,
-    'checksum' => '51da48ee16458c3333be189cd3e0fde7',
+    'timestamp' => 1462291526,
+    'checksum' => 'adea0723158451be97ee4c5cff4a7fc5',
     'files' => [
         'user/config' => [
             'media' => [
@@ -27,7 +27,7 @@ return [
             ],
             'system' => [
                 'file' => 'user/config/system.yaml',
-                'modified' => 1460506732
+                'modified' => 1462291522
             ],
             'themes/medium' => [
                 'file' => 'user/config/themes/medium.yaml',
@@ -55,7 +55,7 @@ return [
         'user/plugins' => [
             'plugins/admin' => [
                 'file' => 'user/plugins/admin/admin.yaml',
-                'modified' => 1460489576
+                'modified' => 1461796147
             ],
             'plugins/error' => [
                 'file' => 'user/plugins/error/error.yaml',
@@ -67,15 +67,15 @@ return [
             ],
             'plugins/form' => [
                 'file' => 'user/plugins/form/form.yaml',
-                'modified' => 1460489572
+                'modified' => 1461796143
             ],
             'plugins/login' => [
                 'file' => 'user/plugins/login/login.yaml',
-                'modified' => 1460489574
+                'modified' => 1461796146
             ],
             'plugins/email' => [
                 'file' => 'user/plugins/email/email.yaml',
-                'modified' => 1460489573
+                'modified' => 1461796144
             ],
             'plugins/archives' => [
                 'file' => 'user/plugins/archives/archives.yaml',
@@ -234,7 +234,8 @@ return [
                         'bin' => '/usr/sbin/sendmail'
                     ]
                 ],
-                'content_type' => 'text/html'
+                'content_type' => 'text/html',
+                'debug' => false
             ],
             'archives' => [
                 'enabled' => true,

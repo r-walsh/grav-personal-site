@@ -1,8 +1,8 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledBlueprints',
-    'timestamp' => 1460506744,
-    'checksum' => '111ab835624558794f1b5ce3b2802592',
+    'timestamp' => 1461798874,
+    'checksum' => '667b9208b9c05e3692fb3296fd56f258',
     'files' => [
         'system/blueprints/config' => [
             'media' => [
@@ -25,7 +25,7 @@ return [
         'user/plugins' => [
             'plugins/admin' => [
                 'file' => 'user/plugins/admin/blueprints.yaml',
-                'modified' => 1460489576
+                'modified' => 1461796147
             ],
             'plugins/error' => [
                 'file' => 'user/plugins/error/blueprints.yaml',
@@ -37,15 +37,19 @@ return [
             ],
             'plugins/form' => [
                 'file' => 'user/plugins/form/blueprints.yaml',
-                'modified' => 1460489572
+                'modified' => 1461796143
             ],
             'plugins/login' => [
                 'file' => 'user/plugins/login/blueprints.yaml',
-                'modified' => 1460489574
+                'modified' => 1461796146
             ],
             'plugins/email' => [
                 'file' => 'user/plugins/email/blueprints.yaml',
-                'modified' => 1460489573
+                'modified' => 1461796144
+            ],
+            'plugins/archives' => [
+                'file' => 'user/plugins/archives/blueprints.yaml',
+                'modified' => 1460752229
             ]
         ]
     ],
@@ -929,7 +933,8 @@ return [
                 'options' => [
                     'none' => 'None',
                     'ssl' => 'SSL',
-                    'ttl' => 'TTL'
+                    'tls' => 'TLS',
+                    'starttls' => 'STARTTLS'
                 ],
                 'name' => 'plugins.email.mailer.smtp.encryption'
             ],
@@ -955,6 +960,144 @@ return [
                 'label' => 'Path to sendmail',
                 'placeholder' => '/usr/sbin/sendmail',
                 'name' => 'plugins.email.mailer.sendmail.bin'
+            ],
+            'plugins.email.debug' => [
+                'type' => 'toggle',
+                'label' => 'Debug',
+                'highlight' => 1,
+                'default' => 0,
+                'options' => [
+                    1 => 'PLUGIN_ADMIN.ENABLED',
+                    0 => 'PLUGIN_ADMIN.DISABLED'
+                ],
+                'validate' => [
+                    'type' => 'bool'
+                ],
+                'name' => 'plugins.email.debug'
+            ],
+            'plugins.archives' => [
+                'type' => '_parent',
+                'name' => 'plugins.archives'
+            ],
+            'plugins.archives.enabled' => [
+                'type' => 'toggle',
+                'label' => 'Plugin status',
+                'highlight' => 1,
+                'default' => 1,
+                'options' => [
+                    1 => 'Enabled',
+                    0 => 'Disabled'
+                ],
+                'validate' => [
+                    'type' => 'bool'
+                ],
+                'name' => 'plugins.archives.enabled'
+            ],
+            'plugins.archives.built_in_css' => [
+                'type' => 'toggle',
+                'label' => 'Use built in CSS',
+                'highlight' => 1,
+                'default' => 1,
+                'options' => [
+                    1 => 'Enabled',
+                    0 => 'Disabled'
+                ],
+                'validate' => [
+                    'type' => 'bool'
+                ],
+                'name' => 'plugins.archives.built_in_css'
+            ],
+            'plugins.archives.date_display_format' => [
+                'type' => 'select',
+                'size' => 'medium',
+                'classes' => 'fancy',
+                'label' => 'Date Format',
+                'default' => 'jS M Y',
+                'options' => [
+                    'F jS Y' => 'January 1st 2014',
+                    'l jS of F' => 'Monday 1st of January',
+                    'D, m M Y' => 'Mon, 01 Jan 2014',
+                    'd-m-y' => '01-01-14',
+                    'jS M Y' => '10th Feb 2014'
+                ],
+                'name' => 'plugins.archives.date_display_format'
+            ],
+            'plugins.archives.show_count' => [
+                'type' => 'toggle',
+                'label' => 'Show Count',
+                'highlight' => 1,
+                'default' => 1,
+                'options' => [
+                    1 => 'Enabled',
+                    0 => 'Disabled'
+                ],
+                'validate' => [
+                    'type' => 'bool'
+                ],
+                'name' => 'plugins.archives.show_count'
+            ],
+            'plugins.archives.limit' => [
+                'type' => 'text',
+                'size' => 'x-small',
+                'label' => 'Count Limit',
+                'validate' => [
+                    'type' => 'number',
+                    'min' => 1
+                ],
+                'name' => 'plugins.archives.limit'
+            ],
+            'plugins.archives.order' => [
+                'type' => '_parent',
+                'name' => 'plugins.archives.order'
+            ],
+            'plugins.archives.order.dir' => [
+                'type' => 'toggle',
+                'label' => 'Order Direction',
+                'highlight' => 'asc',
+                'default' => 'desc',
+                'options' => [
+                    'asc' => 'Ascending',
+                    'desc' => 'Descending'
+                ],
+                'name' => 'plugins.archives.order.dir'
+            ],
+            'plugins.archives.order.by' => [
+                'type' => 'select',
+                'size' => 'medium',
+                'classes' => 'fancy',
+                'label' => 'Order Type',
+                'options' => [
+                    'default' => 'Default - based on folder name',
+                    'folder' => 'Folder - based on prefix-less folder name',
+                    'title' => 'Title - based on title field in header',
+                    'date' => 'Date - based on date field in header'
+                ],
+                'name' => 'plugins.archives.order.by'
+            ],
+            'plugins.archives.filters' => [
+                'type' => '_parent',
+                'name' => 'plugins.archives.filters'
+            ],
+            'plugins.archives.filters.category' => [
+                'type' => 'selectize',
+                'label' => 'Category filter',
+                'help' => 'Comma separated list of category names',
+                'validate' => [
+                    'type' => 'commalist'
+                ],
+                'name' => 'plugins.archives.filters.category'
+            ],
+            'plugins.archives.filter_combinator' => [
+                'type' => 'select',
+                'size' => 'medium',
+                'classes' => 'fancy',
+                'label' => 'Filter Combinator',
+                'default' => 'and',
+                'options' => [
+                    'and' => 'And - Boolean &&',
+                    'or' => 'Or - Boolean ||'
+                ],
+                'name' => 'plugins.archives.filter_combinator'
             ],
             'site' => [
                 'type' => '_parent',
@@ -2327,7 +2470,23 @@ return [
                     'from' => 'plugins.email.from',
                     'from_name' => 'plugins.email.from_name',
                     'to' => 'plugins.email.to',
-                    'to_name' => 'plugins.email.to_name'
+                    'to_name' => 'plugins.email.to_name',
+                    'debug' => 'plugins.email.debug'
+                ],
+                'archives' => [
+                    'enabled' => 'plugins.archives.enabled',
+                    'built_in_css' => 'plugins.archives.built_in_css',
+                    'date_display_format' => 'plugins.archives.date_display_format',
+                    'show_count' => 'plugins.archives.show_count',
+                    'limit' => 'plugins.archives.limit',
+                    'order' => [
+                        'dir' => 'plugins.archives.order.dir',
+                        'by' => 'plugins.archives.order.by'
+                    ],
+                    'filters' => [
+                        'category' => 'plugins.archives.filters.category'
+                    ],
+                    'filter_combinator' => 'plugins.archives.filter_combinator'
                 ]
             ],
             'site' => [

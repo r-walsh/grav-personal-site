@@ -3,9 +3,9 @@ title: 'A (Not so) Quick Look at Toy Problems'
 date: '04/15/2016 12:12 pm'
 taxonomy:
     tag:
-        - 'toy problems'
         - 'learn to code'
         - advice
+        - 'toy problems'
     category:
         - blog
 ---
@@ -23,7 +23,7 @@ If a student can create an `Array.prototype.reduce` or `Array.prototype.nestedFi
 
 ### Introducing students to new concepts and methods they may not discover in their standard learning.
 
-In a bootcamp atmosphere it is very easy for students to gloss over conveinence methods or deeper language ideas. This isn't a CS degree, they are here to learn how to build things, but that doesn't make these features any less important to grasping.
+In a bootcamp atmosphere it is very easy for students to gloss over convienence methods or deeper language ideas. This isn't a CS degree, they are here to learn how to build things, but that doesn't make these features any less important to grasping.
 
 Toy problems help us introduce the more important, but lesser used/required language features. A student who rebuilds `Array.prototype.reduce` is going to be far more likely to remember to use it than one who doesn't. And a student who recreates the `new` operator is going to have a firmer grasp of what is actually happening when creating a new instance of a class.
 

@@ -1,13 +1,17 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledConfig',
-    'timestamp' => 1460506744,
-    'checksum' => '5696ddc5e0b2ddb226d37f21dce952be',
+    'timestamp' => 1461928614,
+    'checksum' => 'a59bfff8a599088cbd1eba8660510d9d',
     'files' => [
         'user/config' => [
             'media' => [
                 'file' => 'user/config/media.yaml',
                 'modified' => 1460489584
+            ],
+            'plugins/archives' => [
+                'file' => 'user/config/plugins/archives.yaml',
+                'modified' => 1460752254
             ],
             'security' => [
                 'file' => 'user/config/security.yaml',
@@ -23,7 +27,7 @@ return [
             ],
             'system' => [
                 'file' => 'user/config/system.yaml',
-                'modified' => 1460506732
+                'modified' => 1461878680
             ],
             'themes/medium' => [
                 'file' => 'user/config/themes/medium.yaml',
@@ -51,7 +55,7 @@ return [
         'user/plugins' => [
             'plugins/admin' => [
                 'file' => 'user/plugins/admin/admin.yaml',
-                'modified' => 1460489576
+                'modified' => 1461796147
             ],
             'plugins/error' => [
                 'file' => 'user/plugins/error/error.yaml',
@@ -63,15 +67,19 @@ return [
             ],
             'plugins/form' => [
                 'file' => 'user/plugins/form/form.yaml',
-                'modified' => 1460489572
+                'modified' => 1461796143
             ],
             'plugins/login' => [
                 'file' => 'user/plugins/login/login.yaml',
-                'modified' => 1460489574
+                'modified' => 1461796146
             ],
             'plugins/email' => [
                 'file' => 'user/plugins/email/email.yaml',
-                'modified' => 1460489573
+                'modified' => 1461796144
+            ],
+            'plugins/archives' => [
+                'file' => 'user/plugins/archives/archives.yaml',
+                'modified' => 1460752229
             ]
         ]
     ],
@@ -226,7 +234,25 @@ return [
                         'bin' => '/usr/sbin/sendmail'
                     ]
                 ],
-                'content_type' => 'text/html'
+                'content_type' => 'text/html',
+                'debug' => false
+            ],
+            'archives' => [
+                'enabled' => true,
+                'built_in_css' => false,
+                'date_display_format' => 'F jS Y',
+                'show_count' => true,
+                'limit' => 12,
+                'order' => [
+                    'by' => 'date',
+                    'dir' => 'desc'
+                ],
+                'filter_combinator' => 'and',
+                'filters' => [
+                    'category' => [
+                        0 => 'blog'
+                    ]
+                ]
             ]
         ],
         'media' => [
@@ -529,7 +555,7 @@ return [
             'proxy_url' => NULL,
             'languages' => [
                 'supported' => [
-                    
+                    0 => 'en'
                 ],
                 'include_default_lang' => true,
                 'translations' => true,
